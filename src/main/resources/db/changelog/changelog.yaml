@@ -59,4 +59,4 @@ databaseChangeLog:
             oldColumnName: lastName
             remarks: renameColumn lastName
             schemaName: public
-            tableName: persong
+            tableName: person
