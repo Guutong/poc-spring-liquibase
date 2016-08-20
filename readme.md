@@ -1,4 +1,4 @@
-# POC Liquibase Spring
+# poc spring liquibase
 
 #### Spring boot , Liquibase, PostgreSql
 
