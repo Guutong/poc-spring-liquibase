@@ -132,10 +132,10 @@ gradle bootRun
             tableName: person
             columns:
               - column:
-                  name: firstName
+                  name: first_name
                   value: pokemon
               - column:
-                  name: lastName
+                  name: last_name
                   value: go
 ```
 ctrl+c to stop `gradle bootRun` and run `gradle bootRun` to reload data
