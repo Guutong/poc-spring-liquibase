@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004_add_person_2
+      author: userdemo
+      changes:
+        - insert:
+            tableName: person
+            columns:
+              - column:
+                  name: first_name
+                  value: pokemon
+              - column:
+                  name: last_name
+                  value: go
+      rollback:
+        - delete:
+            catalogName: demoDB
+            schemaName: public
+            tableName: person
+            where: first_name='pokemon'
+  - changeSet:
+      id: version-1.1.1
+      author: guutong
+      changes:
+        - tagDatabase:
+            tag: 1.1.1

@@ -1,62 +1,7 @@
 databaseChangeLog:
-  - changeSet:
-      id: 1
-      author: userdemo
-      changes:
-        - createTable:
-            tableName: person
-            columns:
-              - column:
-                  name: id
-                  type: int
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: firstName
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: lastName
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
-  - changeSet:
-      id: 2
-      author: userdemo
-      changes:
-        - insert:
-            tableName: person
-            columns:
-              - column:
-                  name: firstName
-                  value: guutong
-              - column:
-                  name: lastName
-                  value: yahoo
-  - changeSet:
-      id: 3
-      author: guutong
-      changes:
-        - renameColumn:
-            catalogName: demoDB
-            columnDataType: String
-            newColumnName: first_name
-            oldColumnName: firstName
-            remarks: renameColumn firstName
-            schemaName: public
-            tableName: person
-  - changeSet:
-      id: rename-lastName
-      author: guutong
-      changes:
-        - renameColumn:
-            catalogName: demoDB
-            columnDataType: String
-            newColumnName: last_name
-            oldColumnName: lastName
-            remarks: renameColumn lastName
-            schemaName: public
-            tableName: person
+  - include:
+      file: changelog-20160820.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changelog-20160821.yaml
+      relativeToChangelogFile: true

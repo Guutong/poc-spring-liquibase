@@ -1,0 +1,113 @@
+databaseChangeLog:
+  - changeSet:
+      id: version-0.0.1
+      author: guutong
+      changes:
+        - tagDatabase:
+            tag: 0.0.1
+  - changeSet:
+      id: 001_createTable_person
+      author: userdemo
+      changes:
+        - createTable:
+            tableName: person
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: firstname
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lastname
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            cascadeConstraints: true
+            catalogName: demoDB
+            schemaName: public
+            tableName: person
+  - changeSet:
+      id: version-1.0.0
+      author: guutong
+      changes:
+        - tagDatabase:
+            tag: 1.0.0
+
+  - changeSet:
+      id: 002_add_person_guutong
+      author: userdemo
+      changes:
+        - insert:
+            tableName: person
+            columns:
+              - column:
+                  name: firstname
+                  value: guutong
+              - column:
+                  name: lastname
+                  value: yahoo
+      rollback:
+        - delete:
+            catalogName: demoDB
+            schemaName: public
+            tableName: person
+            where: firstname='guutong'
+  - changeSet:
+      id: version-1.0.1
+      author: guutong
+      changes:
+        - tagDatabase:
+            tag: 1.0.1
+
+  - changeSet:
+      id: 003_renameColumn_person
+      author: guutong
+      changes:
+        - renameColumn:
+            catalogName: demoDB
+            columnDataType: String
+            newColumnName: first_name
+            oldColumnName: firstname
+            remarks: renameColumn firstName
+            schemaName: public
+            tableName: person
+        - renameColumn:
+            catalogName: demoDB
+            columnDataType: String
+            newColumnName: last_name
+            oldColumnName: lastname
+            remarks: renameColumn lastName
+            schemaName: public
+            tableName: person
+      rollback:
+        - renameColumn:
+            catalogName: demoDB
+            columnDataType: String
+            newColumnName: firstname
+            oldColumnName: first_name
+            remarks: renameColumn firstName
+            schemaName: public
+            tableName: person
+        - renameColumn:
+            catalogName: demoDB
+            columnDataType: String
+            newColumnName: lastname
+            oldColumnName: last_name
+            remarks: renameColumn lastName
+            schemaName: public
+            tableName: person
+  - changeSet:
+      id: version-1.1.0
+      author: guutong
+      changes:
+        - tagDatabase:
+            tag: 1.1.0

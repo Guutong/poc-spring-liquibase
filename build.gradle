@@ -7,12 +7,18 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.liquibase:liquibase-gradle-plugin:1.2.1")
+		classpath("org.postgresql:postgresql:9.3-1104-jdbc4")
+		classpath("org.yaml:snakeyaml:1.12")
+
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
+apply plugin: "org.liquibase.gradle"
+
 
 jar {
 	baseName = 'demo'
@@ -28,8 +34,10 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.liquibase:liquibase-core')
+	compile('org.liquibase:liquibase-core:3.5.1')
 	compile('org.postgresql:postgresql:9.3-1104-jdbc4')
+	compile('org.yaml:snakeyaml:1.12')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
@@ -39,4 +47,18 @@ eclipse {
 		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
 		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
 	}
+}
+
+liquibase {
+	activities {
+		main {
+			changeLogFile 'src/main/resources/db/changelog/changelog.yaml'
+			driver 'org.postgresql.Driver'
+			url 'jdbc:postgresql://localhost:5432/demoDB'
+			username 'userdemo'
+			password 'password@demo'
+			classpath "$rootDir"
+		}
+	}
+	runList = 'main'
 }
