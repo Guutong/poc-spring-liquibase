@@ -2,6 +2,8 @@
 
 #### Spring boot , Liquibase, PostgreSql
 
+-----------------------------------
+
 ```
 gradle update
 --------------
@@ -209,6 +211,8 @@ Liquibase Update Successful
       </tr>
     </table>
     
+-----------------------------------    
+
 ### Test rollback to tag 1.0.0
 
 ```
@@ -308,6 +312,8 @@ Liquibase Rollback Successful
         <td>(null)</td>
       </tr>
     </table>
+
+-----------------------------------
 
 ### Test updateToTag 1.1.0
 
