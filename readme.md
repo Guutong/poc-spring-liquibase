@@ -332,7 +332,7 @@ INFO 8/21/16 3:45 PM: liquibase: Successfully released change log lock
 Liquibase 'updateToTag' Successful
 ```
 
-#### table person 
+#### table person (version 1.1.0)
 <table class="data" cellspacing="0">
       <tr>
         <th>id</th>
