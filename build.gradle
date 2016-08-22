@@ -52,7 +52,7 @@ eclipse {
 liquibase {
 	activities {
 		main {
-			changeLogFile 'src/main/resources/db/changelog/changelog.yaml'
+			changeLogFile 'src/main/resources/db/changelog/changelog.xml'
 			driver 'org.postgresql.Driver'
 			url 'jdbc:postgresql://localhost:5432/demoDB'
 			username 'userdemo'

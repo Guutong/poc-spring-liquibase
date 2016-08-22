@@ -1,7 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: changelog-20160820.yaml
-      relativeToChangelogFile: true
-  - include:
-      file: changelog-20160821.yaml
-      relativeToChangelogFile: true

@@ -1,11 +1,5 @@
 databaseChangeLog:
   - changeSet:
-      id: version-0.0.1
-      author: guutong
-      changes:
-        - tagDatabase:
-            tag: 0.0.1
-  - changeSet:
       id: 001_createTable_person
       author: userdemo
       changes:
