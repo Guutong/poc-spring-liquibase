@@ -1,2 +1,9 @@
 language: java
-  gradle assemble
+jdk:
+  - oraclejdk8
+
+env:
+  - TERM=dumb
+
+after_success:
+  - ./gradlew build
