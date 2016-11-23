@@ -6,4 +6,4 @@ env:
   - TERM=dumb
 
 after_success:
-  - gradle check
+  - gradle assemble
