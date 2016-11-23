@@ -1,9 +1,2 @@
 language: java
-jdk:
-  - oraclejdk8
-
-env:
-  - TERM=dumb
-
-after_success:
-  - gradle assemble
+  gradle assemble
